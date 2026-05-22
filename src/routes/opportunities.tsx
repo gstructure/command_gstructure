@@ -1,8 +1,9 @@
-import { ModulePlaceholder } from "@/components/ui/module-placeholder";
+import { createFileRoute } from "@tanstack/react-router";
+import { ProtectedModule } from "@/components/ui/protected-module";
 
-export default function OpportunitiesPage() {
-  return (
-    <ModulePlaceholder
+export const Route = createFileRoute("/opportunities")({
+  component: () => (
+    <ProtectedModule
       description="Pipeline workspace for sponsor, B2B, investor, partner, talent, media, and event-attendee opportunities."
       focus={[
         "Kanban by pipeline stage",
@@ -13,5 +14,5 @@ export default function OpportunitiesPage() {
       ]}
       title="Opportunities"
     />
-  );
-}
+  )
+});

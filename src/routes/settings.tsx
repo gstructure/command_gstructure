@@ -1,8 +1,9 @@
-import { ModulePlaceholder } from "@/components/ui/module-placeholder";
+import { createFileRoute } from "@tanstack/react-router";
+import { ProtectedModule } from "@/components/ui/protected-module";
 
-export default function SettingsPage() {
-  return (
-    <ModulePlaceholder
+export const Route = createFileRoute("/settings")({
+  component: () => (
+    <ProtectedModule
       description="Workspace settings for profile, roles, future team access, app configuration, and integration readiness."
       focus={[
         "Profile display",
@@ -13,5 +14,5 @@ export default function SettingsPage() {
       ]}
       title="Settings"
     />
-  );
-}
+  )
+});

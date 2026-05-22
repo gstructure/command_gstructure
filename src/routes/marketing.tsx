@@ -1,8 +1,9 @@
-import { ModulePlaceholder } from "@/components/ui/module-placeholder";
+import { createFileRoute } from "@tanstack/react-router";
+import { ProtectedModule } from "@/components/ui/protected-module";
 
-export default function MarketingPage() {
-  return (
-    <ModulePlaceholder
+export const Route = createFileRoute("/marketing")({
+  component: () => (
+    <ProtectedModule
       description="Campaign and content planning for workshop launch, sponsor acquisition, founder story, and authority content."
       focus={[
         "Campaign list",
@@ -13,5 +14,5 @@ export default function MarketingPage() {
       ]}
       title="Marketing Studio"
     />
-  );
-}
+  )
+});

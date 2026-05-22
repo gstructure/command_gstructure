@@ -1,8 +1,9 @@
-import { ModulePlaceholder } from "@/components/ui/module-placeholder";
+import { createFileRoute } from "@tanstack/react-router";
+import { ProtectedModule } from "@/components/ui/protected-module";
 
-export default function WeeklyReviewPage() {
-  return (
-    <ModulePlaceholder
+export const Route = createFileRoute("/weekly-review")({
+  component: () => (
+    <ProtectedModule
       description="Founder review system based on Identify, Reframe, Optimize for closing each week with strategic clarity."
       focus={[
         "Weekly review form",
@@ -13,5 +14,5 @@ export default function WeeklyReviewPage() {
       ]}
       title="Weekly Review"
     />
-  );
-}
+  )
+});

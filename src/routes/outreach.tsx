@@ -1,8 +1,9 @@
-import { ModulePlaceholder } from "@/components/ui/module-placeholder";
+import { createFileRoute } from "@tanstack/react-router";
+import { ProtectedModule } from "@/components/ui/protected-module";
 
-export default function OutreachPage() {
-  return (
-    <ModulePlaceholder
+export const Route = createFileRoute("/outreach")({
+  component: () => (
+    <ProtectedModule
       description="Message templates and manual drafts for email, WhatsApp, LinkedIn, Instagram DM, newsletter, and future Gmail drafts."
       focus={[
         "Create message drafts",
@@ -13,5 +14,5 @@ export default function OutreachPage() {
       ]}
       title="Outreach Center"
     />
-  );
-}
+  )
+});

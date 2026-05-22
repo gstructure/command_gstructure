@@ -1,8 +1,9 @@
-import { ModulePlaceholder } from "@/components/ui/module-placeholder";
+import { createFileRoute } from "@tanstack/react-router";
+import { ProtectedModule } from "@/components/ui/protected-module";
 
-export default function OrganizationsPage() {
-  return (
-    <ModulePlaceholder
+export const Route = createFileRoute("/organizations")({
+  component: () => (
+    <ProtectedModule
       description="Database for companies, institutions, sponsors, funds, media, partners, and providers."
       focus={[
         "Create and edit organizations",
@@ -13,5 +14,5 @@ export default function OrganizationsPage() {
       ]}
       title="Organizations"
     />
-  );
-}
+  )
+});

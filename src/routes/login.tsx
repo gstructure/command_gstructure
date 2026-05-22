@@ -1,7 +1,14 @@
-import { Suspense } from "react";
+import { createFileRoute } from "@tanstack/react-router";
 import { LoginForm } from "@/components/auth/login-form";
 
-export default function LoginPage() {
+export const Route = createFileRoute("/login")({
+  component: LoginRoute,
+  validateSearch: (search: Record<string, unknown>) => ({
+    next: typeof search.next === "string" ? search.next : undefined
+  })
+});
+
+function LoginRoute() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-command-ivory px-6 py-10">
       <div className="grid w-full max-w-5xl overflow-hidden rounded-lg border border-command-line bg-command-surface shadow-panel md:grid-cols-[1.05fr_0.95fr]">
@@ -43,9 +50,7 @@ export default function LoginPage() {
                 Enter the command center
               </h2>
             </div>
-            <Suspense>
-              <LoginForm />
-            </Suspense>
+            <LoginForm />
           </div>
         </section>
       </div>

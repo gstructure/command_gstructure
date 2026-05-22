@@ -2,7 +2,7 @@
 
 ## Objective
 
-Turn the Phase 0 architecture into a working private app shell with real authentication and the first operational dashboard.
+Turn the Phase 0 architecture into a Lovable-compatible TanStack Start app shell with real authentication and the first operational dashboard.
 
 ## Scope
 
@@ -15,6 +15,7 @@ Phase 1 should deliver:
 - Dashboard route
 - Placeholder route shells for all private modules
 - Supabase session wiring
+- TanStack Start route structure
 
 ## Out of Scope
 
@@ -34,3 +35,4 @@ Phase 1 should deliver:
 - User can sign out from the internal layout.
 - All private routes share a consistent premium command-center layout.
 - The app can run locally with `npm run dev`.
+- The app can build with `npm run build`.

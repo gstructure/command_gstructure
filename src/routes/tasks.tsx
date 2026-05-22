@@ -1,8 +1,9 @@
-import { ModulePlaceholder } from "@/components/ui/module-placeholder";
+import { createFileRoute } from "@tanstack/react-router";
+import { ProtectedModule } from "@/components/ui/protected-module";
 
-export default function TasksPage() {
-  return (
-    <ModulePlaceholder
+export const Route = createFileRoute("/tasks")({
+  component: () => (
+    <ProtectedModule
       description="Execution queue connected to contacts, organizations, opportunities, campaigns, and events."
       focus={[
         "Create and edit tasks",
@@ -13,5 +14,5 @@ export default function TasksPage() {
       ]}
       title="Tasks"
     />
-  );
-}
+  )
+});
