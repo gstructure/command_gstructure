@@ -1,8 +1,9 @@
-import { ModulePlaceholder } from "@/components/ui/module-placeholder";
+import { createFileRoute } from "@tanstack/react-router";
+import { ProtectedModule } from "@/components/ui/protected-module";
 
-export default function DocumentsPage() {
-  return (
-    <ModulePlaceholder
+export const Route = createFileRoute("/documents")({
+  component: () => (
+    <ProtectedModule
       description="Registry for pitch decks, sponsor decks, proposals, contracts, NDAs, manuals, flyers, logos, and assets."
       focus={[
         "Document registry",
@@ -13,5 +14,5 @@ export default function DocumentsPage() {
       ]}
       title="Documents"
     />
-  );
-}
+  )
+});

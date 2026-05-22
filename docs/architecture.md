@@ -20,11 +20,11 @@ All other modules orbit that execution core.
 
 ### Application
 
-Next.js App Router with TypeScript is the default application platform. It gives the project a clean path to protected server-rendered pages, API routes when needed, Vercel deployment, and a component structure that can scale to a small internal team.
+TanStack Start with TypeScript is the application platform for the Lovable-compatible branch. It gives the project Vite-based routing, React 19 compatibility, and a deployment path aligned with Lovable's Cloudflare Worker runtime.
 
 ### Authentication
 
-Supabase Auth with email/password is the primary authentication system. The app uses Supabase session cookies through Next middleware to protect internal routes.
+Supabase Auth with email/password is the primary authentication system. The app uses Supabase browser session state in the TanStack app shell and Supabase Row Level Security as the database enforcement layer.
 
 ### Database
 
@@ -36,7 +36,7 @@ Every private table has `owner_id` and Row Level Security policies. The v1 model
 
 ### Hosting
 
-Vercel is the recommended hosting platform because it aligns naturally with Next.js and supports custom domains with simple DNS configuration.
+Lovable is the recommended hosting platform for this branch because the app has been ported away from Next.js into TanStack Start, React 19, and Vite.
 
 ## Route Map
 
@@ -68,7 +68,7 @@ Private:
 
 ```txt
 src/
-  app/
+  routes/
   components/
     layout/
     ui/
@@ -146,7 +146,7 @@ Border: #d9dedc
 
 ## Phase 1 Implementation Order
 
-1. Install dependencies and verify Next.js boots.
+1. Install dependencies and verify TanStack Start boots.
 2. Build `/login`.
 3. Build authenticated app layout.
 4. Add `/dashboard` shell.

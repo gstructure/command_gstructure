@@ -1,8 +1,9 @@
-import { ModulePlaceholder } from "@/components/ui/module-placeholder";
+import { createFileRoute } from "@tanstack/react-router";
+import { ProtectedModule } from "@/components/ui/protected-module";
 
-export default function ContactsPage() {
-  return (
-    <ModulePlaceholder
+export const Route = createFileRoute("/contacts")({
+  component: () => (
+    <ProtectedModule
       description="Internal CRM for people, relationship temperature, source, context, and next follow-up."
       focus={[
         "Create and edit contacts",
@@ -13,5 +14,5 @@ export default function ContactsPage() {
       ]}
       title="Contacts"
     />
-  );
-}
+  )
+});

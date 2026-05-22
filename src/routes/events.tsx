@@ -1,8 +1,9 @@
-import { ModulePlaceholder } from "@/components/ui/module-placeholder";
+import { createFileRoute } from "@tanstack/react-router";
+import { ProtectedModule } from "@/components/ui/protected-module";
 
-export default function EventsPage() {
-  return (
-    <ModulePlaceholder
+export const Route = createFileRoute("/events")({
+  component: () => (
+    <ProtectedModule
       description="Event operations for the July 14 workshop and future G-Structure activations."
       focus={[
         "Event registry",
@@ -13,5 +14,5 @@ export default function EventsPage() {
       ]}
       title="Events"
     />
-  );
-}
+  )
+});

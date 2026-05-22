@@ -6,8 +6,14 @@ import {
   Handshake,
   Megaphone
 } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { AppShell } from "@/components/layout/app-shell";
 import { PageHeader } from "@/components/layout/page-header";
 import { StatusCard } from "@/components/ui/status-card";
+
+export const Route = createFileRoute("/dashboard")({
+  component: DashboardRoute
+});
 
 const nextActions = [
   "Review overdue follow-ups before new outreach.",
@@ -15,9 +21,9 @@ const nextActions = [
   "Confirm July 14 workshop registration path and post-event follow-up owner."
 ];
 
-export default function DashboardPage() {
+function DashboardRoute() {
   return (
-    <>
+    <AppShell>
       <PageHeader
         description="Daily operating view for follow-ups, priorities, active opportunities, campaign movement, and founder-level next actions."
         eyebrow="Today"
@@ -93,6 +99,6 @@ export default function DashboardPage() {
           </div>
         </article>
       </section>
-    </>
+    </AppShell>
   );
 }

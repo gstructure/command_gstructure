@@ -1,13 +1,11 @@
-"use client";
-
 import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useNavigate, useSearch } from "@tanstack/react-router";
 import { Loader2, LogIn } from "lucide-react";
-import { createSupabaseBrowserClient } from "@/lib/supabase/client";
+import { createSupabaseBrowserClient, isSupabaseConfigured } from "@/lib/supabase/client";
 
 export function LoginForm() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
+  const navigate = useNavigate();
+  const search = useSearch({ from: "/login" }) as { next?: string };
   const supabase = createSupabaseBrowserClient();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,6 +15,12 @@ export function LoginForm() {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError(null);
+
+    if (!isSupabaseConfigured()) {
+      setError("Supabase environment variables are not configured yet.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     const { error: signInError } = await supabase.auth.signInWithPassword({
@@ -31,8 +35,7 @@ export function LoginForm() {
       return;
     }
 
-    router.replace(searchParams.get("next") || "/dashboard");
-    router.refresh();
+    await navigate({ to: search.next || "/dashboard" });
   }
 
   return (

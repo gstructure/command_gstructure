@@ -1,8 +1,9 @@
-import { ModulePlaceholder } from "@/components/ui/module-placeholder";
+import { createFileRoute } from "@tanstack/react-router";
+import { ProtectedModule } from "@/components/ui/protected-module";
 
-export default function InteractionsPage() {
-  return (
-    <ModulePlaceholder
+export const Route = createFileRoute("/interactions")({
+  component: () => (
+    <ProtectedModule
       description="Timeline of emails, WhatsApp notes, LinkedIn touches, calls, meetings, forms, and outcomes."
       focus={[
         "Register interaction channel",
@@ -13,5 +14,5 @@ export default function InteractionsPage() {
       ]}
       title="Interactions"
     />
-  );
-}
+  )
+});
